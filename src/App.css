@@ -27,6 +27,38 @@
 .App-link {
   color: #61dafb;
 }
+.logo {
+  width: 30%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logofeli {
+  padding: 10px;
+  width: 70px;
+  display: flex;
+}
+nav {
+  display: flex;
+  margin: auto;
+  width: 100%;
+
+  background-color: rgb(253, 237, 245);
+}
+li {
+  display: inline;
+  padding: 10px;
+}
+nav ul {
+  text-align: right;
+  width: 50%;
+}
+nav ul li a {
+  font-size: 20px;
+  text-decoration: none;
+  color: #888888;
+}
 
 @keyframes App-logo-spin {
   from {
