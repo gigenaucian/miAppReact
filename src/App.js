@@ -1,32 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
 //componentes
 
 import "./components/NavBar";
 import NavBar from './components/NavBar';
+import Footer from './components/Footer/Footer';
+import ItemListConteiner from './components/ItemListContainer/ItemListContainer';
+
 
 function App() {
   return (
     <div className="App">
-      
-      
       <header className="App-header">
-        <NavBar />
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Mi react app (Mi primera)
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <NavBar />  
       </header>
-      
+      <div className="CardsConteiner">
+      <ItemListConteiner 
+          name="Combo Felita" date="$2700" description="Confeccionado a mano, apto Horno" img="./foto2.jpg" />
+      <ItemListConteiner 
+          name="Combo Mate" date="$1700" description="Confeccionado a mano, sin moldes." img="./foto6.jpg" />
+      <ItemListConteiner 
+          name="Plato Felicitas" date="$900" description="Confeccionado a mano, apto Horno y microhondas" img="./header.jpg" />        
+       </div>   
+      <Footer title="instagram" />
+      <Footer title="Facebook" />
+      <Footer title="Twiter" />
     </div>
   );
 }
