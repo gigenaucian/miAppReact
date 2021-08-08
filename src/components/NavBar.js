@@ -4,7 +4,7 @@ import  "./NavBar.css";
 
 const NavBar = ()=>{
     return (
-       
+        
     <nav>
          <div className="logo">
             <p><a href="index.html"><img src="./logoFelita.jpg" class="logofeli" alt="logo Felita"></img></a></p>

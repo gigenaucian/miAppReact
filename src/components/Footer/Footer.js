@@ -5,7 +5,7 @@ import img from './logo-ins.png'
 
 
 
-const Footer = (title) => {
+const Footer = ({title}) => {
     return (
         <div className="Footer">
             <h3>Seguinos en {title}</h3>
