@@ -1,0 +1,7 @@
+#btnCompra {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  width: 90%;
+  margin: 10px;
+}

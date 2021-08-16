@@ -2,8 +2,9 @@
 import React from 'react'
 import { Card,  Image } from 'semantic-ui-react'
 import { Button } from 'semantic-ui-react'
+import ItemCount from '../ItemCount/ItemCount';
 
-const ItemListConteiner = ({name , date , description, img} ) => (
+const ItemListConteiner = ({name , date , description,stock,  img} ) => (
   <Card>
     <Image src={img} wrapped ui={false} />
     <Card.Content>
@@ -14,9 +15,13 @@ const ItemListConteiner = ({name , date , description, img} ) => (
       <Card.Description>
        {description}
       </Card.Description>
+      <Card.Description>
+       {stock}
+      </Card.Description>
     </Card.Content>
     <Card.Content extra>
-    <Button>Comprar</Button>
+    <ItemCount />
+    
     </Card.Content>
   </Card>
 )
