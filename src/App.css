@@ -3,14 +3,16 @@
 }
 .App-header {
   width: 100%;
-  height: 200px;
+  height: 25vh;
   display: flex;
   background-color: rgb(253, 237, 245);
 }
 .CardsConteiner {
   width: 100%;
-  height: 700px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: rgb(250, 244, 249);
+  padding: 20px;
 }

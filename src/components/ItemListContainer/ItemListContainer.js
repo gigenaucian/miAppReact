@@ -5,7 +5,7 @@ import { Button } from 'semantic-ui-react'
 import ItemCount from '../ItemCount/ItemCount';
 
 const ItemListConteiner = ({name , date , description,stock,  img} ) => (
-  <Card>
+  <Card id="cardConteiner">
     <Image src={img} wrapped ui={false} />
     <Card.Content>
       <Card.Header>{name}</Card.Header>
