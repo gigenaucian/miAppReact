@@ -13,9 +13,9 @@ const NavBar = ()=>{
             <li><a class="link" href="#">Home</a></li>
             <li><a class="link" href="#">Productos</a></li>
             <li><a class="link" href="#">Contacto</a></li>
-            <li><a class="link" href="#"></a></li>
-           
+            
             <CartWidget />
+           
         </ul>
         
     </nav>)
