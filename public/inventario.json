@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1 ,
+        "title":"Cuencos",
+        "description": "confeccionado a mano",
+        "price": 1000,
+        "pictureUrl": "..//foto4.jpg"
+    },
+    {
+        
+        "id": 2,
+        "title":"Fuentes",
+        "description":"apto microhondas",
+        "price": 700,
+        "pictureUrl": "..//foto7.jpg"
+   },
+   {
+        
+    "id": 3,
+    "title": "Macetas",
+    "description":" modelado a mano, sin moldes ",
+    "price": 800,
+    "pictureUrl": "..//foto5.jpg"
+},
+{
+        
+    "id": 4,
+    "title": "Kit matero",
+    "description":" Contiene mate pintado a mano, azucarera, yerbera, 500 grs de yerba ' Ahinco'  ",
+    "price": 900,
+    "pictureUrl": "..//foto3.jpg"
+}
+
+
+]

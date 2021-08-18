@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { Card,  Image } from 'semantic-ui-react'
-import { Button } from 'semantic-ui-react'
+
 import ItemCount from '../ItemCount/ItemCount';
 
 const ItemListConteiner = ({name , date , description,stock,  img} ) => (

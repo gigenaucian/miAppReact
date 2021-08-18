@@ -1,13 +1,13 @@
 .logo {
   width: 20%;
-  height: 70px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   float: left;
 }
 .logofeli {
-  padding: 10px;
+  padding: 5px;
   width: 200px;
   display: flex;
 }

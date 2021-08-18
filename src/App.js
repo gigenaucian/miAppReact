@@ -7,6 +7,8 @@ import "./components/NavBar";
 import NavBar from './components/NavBar';
 import Footer from './components/Footer/Footer';
 import ItemListConteiner from './components/ItemListContainer/ItemListContainer';
+import ItemList from './components/ItemList/ItemList';
+import Item from './components/Item/Item'
 
 
 
@@ -22,10 +24,17 @@ function App() {
       <ItemListConteiner 
           name="Combo Mate" date="$1700" description="Confeccionado a mano, sin moldes." stock="stock 10 unidades" img="./foto6.jpg" /> 
       <ItemListConteiner 
-          name="Plato Felicitas" date="$900" description="Confeccionado a mano, apto Horno y microhondas" stock="stock 10 unidades" img="./header.jpg" />         
-       </div>   
+         name="Plato Felicitas" date="$900" description="Confeccionado a mano, apto Horno y microhondas" stock="stock 10 unidades" img="./header.jpg" />         
+       
+       
+       
+       
+       </div>  
+       <Item /> 
+
       <Footer title="instagram" />
       <Footer title="Facebook" />
+      
       
     </div>
   );
