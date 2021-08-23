@@ -1,24 +1,52 @@
 import React from 'react';
 import './App.css';
+import {BrowserRouter as Router,  Switch, Route } from 'react-router-dom';
 
 
 //componentes
 
-import "./components/NavBar";
+
 import NavBar from './components/NavBar';
 import Footer from './components/Footer/Footer';
 import ItemListConteiner from './components/ItemListContainer/ItemListContainer';
 import ItemList from './components/ItemList/ItemList';
 
 
+//views
+import home from './Views/Home/home';
+import contacto from './Views/Contacto/contacto';
+import productos from './Views/Productos/productos';
 
 
-function App() {
+
+
+
+
+const  App = () => {
+  
   return (
+    
+    
+    <Router>
     <div className="App">
+    <Switch> 
+        <Route path='/' exact component={ home } />
+        <Route path='/contacto' component={ contacto } />
+        <Route path='/productos' component={ productos } />
+      </Switch>
       <header className="App-header">
-        <NavBar />  
+      
+      <NavBar />  
+
       </header>
+      
+      
+     
+    
+
+
+
+
       <div className="CardsConteiner">
       <ItemListConteiner 
           name="Combo Felita" date="$2700" description="Confeccionado a mano, apto Horno"  stock="stock 10 unidades" img="./foto2.jpg"  /> 
@@ -27,18 +55,20 @@ function App() {
       <ItemListConteiner 
          name="Plato Felicitas" date="$900" description="Confeccionado a mano, apto Horno y microhondas" stock="stock 10 unidades" img="./header.jpg" />         
        
-       
-       
-       
-       </div>  
+        </div>  
        <ItemList /> 
+       
+       
 
       <Footer title="instagram" />
-      <Footer title="Facebook" />
+     
       
       
     </div>
+   </Router>
+    
+    
   );
 }
 
-export default App;
+export default App ;
