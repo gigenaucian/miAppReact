@@ -1,39 +1,25 @@
-
-import React, {useState , useEffect} from 'react';
-import ItemList from '../ItemList/ItemList';
-
+import React from 'react';
 import './Item.css'
+import { Card, Image } from 'semantic-ui-react';
 
 
 
-
-const Item = () => {
-    const [inventario, SetInventario] =  useState([])
-    console.log("usuarios", inventario)
-
-
-    useEffect(() => {
-        fetch('../inventario.json')
-        .then((response) => response.json())
-        .then((datos) => SetInventario(datos))
-        
-    }, [])
-
+function Item({ data }) {
+  return(
+    <Card className='cardConteiner' id='card'>
+    <Image src={data.pictureUrl} wrapped ui={false} />
+    <Card.Content>
+      <Card.Header> {data.title} </Card.Header>
+      <Card.Meta>
+       {data.price}
+      </Card.Meta>
+      <Card.Description>
+       {data.description}
+      </Card.Description>
+    </Card.Content>
     
-    
-    return (
-        <div className='OtrosProductos' id="otros">
-            {inventario.map((data)=> {
-            return (
-               <ItemList key={data.id} data= {data} />
-            );
-            
-            })}
-
-
-            
-        </div>
-    )
+  </Card>
+  )
 }
 
 export default Item

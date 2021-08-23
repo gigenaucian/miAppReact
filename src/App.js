@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 
+
 //componentes
 
 import "./components/NavBar";
@@ -8,7 +9,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer/Footer';
 import ItemListConteiner from './components/ItemListContainer/ItemListContainer';
 import ItemList from './components/ItemList/ItemList';
-import Item from './components/Item/Item'
+
 
 
 
@@ -30,7 +31,7 @@ function App() {
        
        
        </div>  
-       <Item /> 
+       <ItemList /> 
 
       <Footer title="instagram" />
       <Footer title="Facebook" />
