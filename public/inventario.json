@@ -5,6 +5,7 @@
         "description": "confeccionado a mano",
         "price": 1000,
         "pictureUrl": "..//foto4.jpg",
+        "category": "Cuencos",
         "detalle":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) "
     },
     {
@@ -14,6 +15,7 @@
         "description":"apto microhondas",
         "price": 700,
         "pictureUrl": "..//foto7.jpg",
+        "category": "Fuentes",
         "detalle":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) "
    },
    {
@@ -23,6 +25,7 @@
     "description":" modelado a mano, sin moldes ",
     "price": 800,
     "pictureUrl": "..//foto5.jpg",
+    "category": "macetas",
     "detalle":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) "
 },
 {
@@ -32,6 +35,17 @@
     "description":" Contiene mate pintado a mano, azucarera, yerbera, 500 grs de yerba ' Ahinco'  ",
     "price": 900,
     "pictureUrl": "..//foto3.jpg",
+    "category": "COMBO",
+    "detalle":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) "
+},
+{
+        
+    "id": 5,
+    "title": "Kit Sushi",
+    "description":" Contiene mate pintado a mano, azucarera, yerbera, 500 grs de yerba ' Ahinco'  ",
+    "price": 900,
+    "pictureUrl": "..//foto3.jpg",
+    "category": "COMBO",
     "detalle":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) "
 }
 

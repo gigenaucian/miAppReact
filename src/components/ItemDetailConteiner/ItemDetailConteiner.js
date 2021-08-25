@@ -1,27 +1,34 @@
-import { React, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 
 
-import ItemDetail from "./ItemDetail/ItemDetail";
-import { Loader } from 'semantic-ui-react'
+import ItemDetail from "../ItemDetail/ItemDetail";
+import "./ItemDetailConteiner.css"
 
 const ItemDetailContainer = () => {
     const [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-   // console.log("que hay aca", data);
+    
+
 
     useEffect(() => {
         axios('../inventario.json').then((res) =>
             setData(res.data)
-        );
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
+        ); 
+       
     }, []);
 
     return (
-        <div className="ItemDetail">
-            {isLoading ? <Loader active inline='centered' /> : <ItemDetail dataProduct={data} />}
+        <div className="ItemDetailConteiner">
+           {data.map((dato)=>{
+               return(
+                   <div key={dato.id} className="ItemDetailConteiner">
+                   <Link to={`/detail/${dato.id}`}>
+                       <ItemDetail data ={dato} />
+                    </Link>
+                   </div>
+               )
+           })}
         </div>
     );
 };

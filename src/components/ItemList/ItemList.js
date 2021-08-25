@@ -28,6 +28,7 @@ const ItemList = () => {
         <div className='OtrosProductos' id="otros">
             {inventario.map((data)=> {
             return (
+                
                <Item key={data.id} data= {data} />
             );
             

@@ -1,10 +1,26 @@
-import React from 'react'
-import ItemDetail from './ItemDetailConteiner/ItemDetailConteiner'
+import React from 'react';
+import { Card,  Image } from 'semantic-ui-react'
 
-function ItemDetail() {
+
+
+
+function ItemDetail({ data }) {
+  
     return (
-        <div>
-            
+        <div className='itemdatail'>
+    <Card>
+    <Image src={data.pictureUrl} wrapped ui={false} />
+    <Card.Content>
+      <Card.Header>{data.title}</Card.Header>
+      <Card.Meta>
+        <span className='date'>{data.price}</span>
+      </Card.Meta>
+      <Card.Description>
+        Matthew is a musician living in Nashville.
+      </Card.Description>
+    </Card.Content>
+   
+  </Card>
         </div>
     )
 }
