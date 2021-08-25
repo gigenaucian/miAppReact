@@ -13,9 +13,9 @@ import Footer from './components/Footer/Footer';
 
 //views
 import home from './Views/Home/home';
-import contacto from './Views/Contacto/contacto';
-import productos from './Views/Productos/productos';
-import ProductDetail from './Views/ProductDetail/ProductDetail';
+import ItemDetailConteiner from './components/ItemDetailConteiner/ItemDetailConteiner';
+
+
 
 
 
@@ -32,9 +32,7 @@ const  App = () => {
       </header>
       <Switch> 
         <Route path='/' exact component={ home } />
-        <Route path='/contacto' component={ contacto } />
-       <Route path='/productos' component={ productos } />
-       <Route path ='/detail/:id' component={ ProductDetail } />
+        <Route  path='/detail/:id' component={ItemDetailConteiner}/>
      </Switch>
 
 

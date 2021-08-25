@@ -12,7 +12,7 @@ const ItemList = () => {
 
 
     useEffect(() => {
-        fetch('../inventario.json')
+        fetch('http://localhost:3002/products')
         .then((response) => response.json())
         .then((datos) => SetInventario(datos))
         setTimeout(() => {

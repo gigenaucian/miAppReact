@@ -1,36 +1,30 @@
-import React, {  useEffect, useState } from "react";
-import axios from "axios";
-import {Link} from 'react-router-dom'
+import React from 'react'
+import { useState, useEffect} from 'react'
+import axios from 'axios'
 
 
-import ItemDetail from "../ItemDetail/ItemDetail";
-import "./ItemDetailConteiner.css"
-
-const ItemDetailContainer = () => {
-    const [data, setData] = useState([]);
-    
+import ItemDetail from '../ItemDetail/ItemDetail'
 
 
-    useEffect(() => {
-        axios('../inventario.json').then((res) =>
-            setData(res.data)
-        ); 
-       
-    }, []);
 
-    return (
-        <div className="ItemDetailConteiner">
-           {data.map((dato)=>{
-               return(
-                   <div key={dato.id} className="ItemDetailConteiner">
-                   <Link to={`/detail/${dato.id}`}>
-                       <ItemDetail data ={dato} />
-                    </Link>
-                   </div>
-               )
-           })}
-        </div>
-    );
-};
+const  ItemDetailConteiner= ({match}) => {
+    let prodId = match.params.id;
+    const [dato ,setDato] = useState([]);
 
-export default ItemDetailContainer;
+    console.log("que es", dato)
+    useEffect(()=> {
+        axios(`http://localhost:3002/products/${prodId}`).then((res)=> 
+        setDato(res.data))
+    },[prodId]);
+
+
+    console.log("desde conteiner",dato)
+       return (
+        
+        <ItemDetail dato={dato}/>
+          
+       )
+
+
+    }
+export default ItemDetailConteiner
