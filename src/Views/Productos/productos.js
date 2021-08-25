@@ -1,13 +1,13 @@
 import React from 'react';
-import ItemDetail from '../../components/ItemDetail/ItemDetail';
+import './productos.css'
 import ItemDetailContainer from '../../components/ItemDetailConteiner/ItemDetailConteiner';
-import ProductDetail from '../ProductDetail/ProductDetail';
+
 
 
 
 const productos = () => {
     return (
-        <div>
+        <div className="productos">
            <h1>Productos</h1>
            <ItemDetailContainer />
         

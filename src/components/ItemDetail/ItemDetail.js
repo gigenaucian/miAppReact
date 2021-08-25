@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card,  Image } from 'semantic-ui-react'
+import './ItemDetail.css'
 
 
 
@@ -7,7 +8,7 @@ import { Card,  Image } from 'semantic-ui-react'
 function ItemDetail({ data }) {
   
     return (
-        <div className='itemdatail'>
+    <div className='itemdatail'>
     <Card>
     <Image src={data.pictureUrl} wrapped ui={false} />
     <Card.Content>

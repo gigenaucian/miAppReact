@@ -1,6 +1,7 @@
-.ItemDetail {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  justify-content: end;
-  column-gap: 60px;
+.ItemDetailConteiner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 80px;
 }
