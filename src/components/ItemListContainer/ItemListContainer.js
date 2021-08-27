@@ -1,29 +1,51 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
-import { Card,  Image } from 'semantic-ui-react'
+import {React, useState, useEffect} from 'react'
+import ItemList from '../ItemList/ItemList';
+import { useParams } from 'react-router-dom';
 
-import ItemCount from '../ItemCount/ItemCount';
 
-const ItemListConteiner = ({name , date , description,stock,  img} ) => (
-  <Card id="cardConteiner">
-    <Image src={img} wrapped ui={false} />
-    <Card.Content>
-      <Card.Header>{name}</Card.Header>
-      <Card.Meta>
-        <span className='date'>{date}</span>
-      </Card.Meta>
-      <Card.Description>
-       {description}
-      </Card.Description>
-      <Card.Description>
-       {stock}
-      </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-    <ItemCount />
+
+const ItemListConteiner = ({match}) => {
+  const [products, setProducts] = useState([])
+  const { categoryId } = useParams()
+
+    useEffect(()=>{
+       fetch('http://localhost:3003/products').then((response)=> response.json())
+       .then((respuesta)=>{
+         categoryId
+         ? setProducts(respuesta.filter((x)=> x.category=== categoryId))
+          : setProducts(respuesta)
+       }
+
+       
+        //axios(`http://localhost:3002/inventario`).then((res) => {
+          //categoryId
+            //? setItems(res.filter((x) => x.category === categoryId))
+           // : setItems(res.data);
+           // console.log("data",res.data)
+            
+    )},[categoryId], console.log('que tiene',categoryId))
+          
+          
+      
+
+     
     
-    </Card.Content>
-  </Card>
-)
+   
+
+  return(
+    <div className="OTRO">
+    <h1> Categoría: {categoryId}</h1>
+      
+    
+    <ItemList products={categoryId} />
+            
+     
+       
+
+    </div>
+    
+  )
+}
 
 export default ItemListConteiner

@@ -8,11 +8,11 @@ const NavBar = ()=>{
         
     <nav>
          <div className="logo">
-            <p><a href="index.html"><img src="./logoFelita.jpg" class="logofeli" alt="logo Felita"></img></a></p>
+            <p><Link to="/"><img src="./logoFelita.jpg" class="logofeli" alt="logo Felita"></img></Link></p>
          </div>   
         <ul>
             <Link to='/'> Home </Link>
-            <Link to='/productos'> Productos </Link>
+            <Link to='/COMBO'> Combos </Link>
             <Link to ='/contacto'> Contacto </Link>
             
             <CartWidget />

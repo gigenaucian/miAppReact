@@ -1,9 +1,8 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
 import axios from 'axios'
-
-
 import ItemDetail from '../ItemDetail/ItemDetail'
+import {Link} from 'react-router-dom'
 
 
 
@@ -13,16 +12,16 @@ const  ItemDetailConteiner= ({match}) => {
 
     console.log("que es", dato)
     useEffect(()=> {
-        axios(`http://localhost:3002/products/${prodId}`).then((res)=> 
+        axios(`http://localhost:3003/products/${prodId}`).then((res)=> 
         setDato(res.data))
     },[prodId]);
 
 
-    console.log("desde conteiner",dato)
+   
        return (
         
         <ItemDetail dato={dato}/>
-          
+        
        )
 
 
