@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom'
 
 function contacto() {
     return (
-        <Link to='/contacto'>
+        <Link to='/macetas'>
         <div>
 
-            <h1>Contacto</h1>
+            <h1>Macetas</h1>
         </div>
         </Link>
     )

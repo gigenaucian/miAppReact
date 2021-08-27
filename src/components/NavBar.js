@@ -12,10 +12,10 @@ const NavBar = ()=>{
          </div>   
         <ul>
             <Link to='/'> Home </Link>
-            <Link to='/COMBO'> Combos </Link>
-            <Link to ='/contacto'> Contacto </Link>
+            <Link to='/category/COMBO'> Combos </Link>
+            <Link to ='/category/macetas'> Macetas</Link>
             
-            <CartWidget />
+            <Link to='/CartWidget'> <CartWidget /></Link>
            
         </ul>
         

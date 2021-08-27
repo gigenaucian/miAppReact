@@ -1,44 +1,49 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import {React, useState, useEffect} from 'react'
 import ItemList from '../ItemList/ItemList';
+import "./ItemListContainer.css"
 import { useParams } from 'react-router-dom';
 
 
 
-const ItemListConteiner = ({match}) => {
+const ItemListConteiner = () => {
   const [products, setProducts] = useState([])
   const { categoryId } = useParams()
-
-    useEffect(()=>{
-       fetch('http://localhost:3003/products').then((response)=> response.json())
+ 
+  useEffect(() => {
+       fetch(`http://localhost:3003/products`).then((Response)=>Response.json())
        .then((respuesta)=>{
-         categoryId
-         ? setProducts(respuesta.filter((x)=> x.category=== categoryId))
-          : setProducts(respuesta)
-       }
+         return(
+        categoryId
+        ? setProducts(respuesta.filter((x)=> x.category === categoryId))
+         : setProducts(respuesta)
+         )}
 
-       
-        //axios(`http://localhost:3002/inventario`).then((res) => {
-          //categoryId
-            //? setItems(res.filter((x) => x.category === categoryId))
-           // : setItems(res.data);
-           // console.log("data",res.data)
-            
-    )},[categoryId], console.log('que tiene',categoryId))
-          
-          
-      
+
+  )}, [categoryId], console.log('que tiene', products)) 
 
      
     
    
 
   return(
+
     <div className="OTRO">
-    <h1> Categoría: {categoryId}</h1>
+    <h1>{categoryId}</h1>
+   
+      
+      <div className='otro'> 
+     
+     
+          
+             <ItemList key={products.category} product={products}  />
+
+      </div>
+        
+    
       
     
-    <ItemList products={categoryId} />
+          
             
      
        

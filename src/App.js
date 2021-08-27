@@ -11,10 +11,9 @@ import Footer from './components/Footer/Footer';
 import ItemDetailConteiner from './components/ItemDetailConteiner/ItemDetailConteiner';
 
 //views
-import home from './Views/Home/home';
-
-import contacto from './Views/Contacto/contacto'
+import macetas from './Views/Contacto/macetas'
 import ItemListConteiner from './components/ItemListContainer/ItemListContainer';
+import CartWidget from './components/CartWidget/CartWidget';
 
 
 
@@ -34,9 +33,10 @@ const  App = () => {
 
       <Switch> 
         <Route path='/' exact component={ ItemListConteiner } />
+        <Route path='/category/:categoryId'  component={ ItemListConteiner } />
         <Route  path='/item/:id' component={ItemDetailConteiner}/>
-        <Route path='/category/:categoryId'  component={ ItemListConteiner   } />
-        <Route path='/contacto'  component={ contacto } />
+        <Route path='/macetas'  component={ macetas } />
+        <Route path='/CartWidget'  component={ CartWidget } />
 
      </Switch>
 
@@ -45,8 +45,6 @@ const  App = () => {
        
 
       <Footer title="instagram" />
-     
-     
       
     </div>
 

@@ -8,25 +8,12 @@ import './ItemList.css'
 import { Loader } from 'semantic-ui-react'
 
 
-const ItemList = () => {
-    const [inventario, SetInventario] =  useState([])
-    const [IsLoading, setIsLoading] = useState(true);
-     useEffect(() => {
-        fetch('http://localhost:3003/products')
-        .then((response) => response.json())
-        .then((datos) => SetInventario(datos))
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 1000);
-    },[])
+const ItemList = ({product}) => {
 
-    if (IsLoading) {
-        return (<Loader active inline='centered' />)
-
-    } else {
+ 
         return (
         <div className='OtrosProductos' id="otros">
-            {inventario.map((data)=> {
+            {product.map((data)=> {
                
             return (
                 
@@ -40,8 +27,9 @@ const ItemList = () => {
 
             
         </div>
-    )}
+    )
 }
+
 
 export default ItemList
 
