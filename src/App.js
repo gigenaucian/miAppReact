@@ -13,7 +13,8 @@ import ItemDetailConteiner from './components/ItemDetailConteiner/ItemDetailCont
 //views
 import macetas from './Views/Contacto/macetas'
 import ItemListConteiner from './components/ItemListContainer/ItemListContainer';
-import CartWidget from './components/CartWidget/CartWidget';
+import cart from './Views/Cart/cart.js'
+
 
 
 
@@ -36,7 +37,7 @@ const  App = () => {
         <Route path='/category/:categoryId'  component={ ItemListConteiner } />
         <Route  path='/item/:id' component={ItemDetailConteiner}/>
         <Route path='/macetas'  component={ macetas } />
-        <Route path='/CartWidget'  component={ CartWidget } />
+        <Route path='/cart'  component={ cart } />
 
      </Switch>
 

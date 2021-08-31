@@ -10,7 +10,7 @@ const  ItemDetailConteiner= ({match}) => {
     let prodId = match.params.id;
     const [dato ,setDato] = useState([]);
 
-    console.log("que es", dato)
+    
     useEffect(()=> {
         axios(`http://localhost:3003/products/${prodId}`).then((res)=> 
         setDato(res.data))

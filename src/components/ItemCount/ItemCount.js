@@ -5,47 +5,32 @@ import { Button } from 'semantic-ui-react'
 
 
 
+function ItemCount( {data , stock =10,  onAdd} ) {
+    const [count, setCount] = useState(0);
 
-
-function ItemCount( {initial =0, stock=10 } ) {
-    const [stockItems, setStockItems] = useState(initial)
-    const incrementar = ()=>{
-        if(stockItems < stock){
-            setStockItems (stockItems + 1)
-        }else{
-            return false
-        }
+    const agregar = (max) => {
+        count < max ? setCount(count + 1) : alert('Max. Superada');
     }
 
-    const decrementar =()=>{
-        if(stockItems >0){
-            setStockItems (stockItems - 1)
-        }else{
-            return false
-        }
+    const quitar = () => {
+        count > 0 ? setCount(count-1) : alert('Min. no posible');
     }
-
-    const comprar = () =>{
-        if(stockItems >= 1){
-            alert("Al carrito")
-        }else{
-            return false
-        }
-
-
-    }
-
 
     return (
-        <div className="contadores">
-            
-            <p> { stockItems } </p>
-            <Button onClick={decrementar}> - </Button>
-            <Button onClick={incrementar} > + </Button>
-            <Button onClick={comprar} id="btnCompra">Comprar</Button>
-            
-        </div>
+        <>
+            <span className='contador-conteiner'>
+                <Button onClick={quitar}> - </Button>
+                
+                <input 
+                id='cantidad'
+                value= {count}
+                />
+                <Button onClick={() => agregar(stock)} > + </Button> 
+                <Button onClick={() => onAdd(count)}> Comprar </Button>
+            </span>
+        </>
     )
 }
+
 
 export default ItemCount

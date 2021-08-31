@@ -16,6 +16,9 @@ function Item({ data }) {
       <Card.Meta>
        {data.price}
       </Card.Meta>
+      <Card.Meta>
+       {`stock: ${data.stock}`}
+      </Card.Meta>
       <Card.Description>
        {data.description}
       </Card.Description>

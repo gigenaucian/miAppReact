@@ -1,14 +1,25 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
-import { Card,  Image } from 'semantic-ui-react'
+import { Card,  Image ,Button } from 'semantic-ui-react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 
 
 function ItemDetail({dato}) {
   
+  const[count, setCount] = useState(null)
+  
+  const onAdd = (valor) => {
+    valor > 0 ?  setCount(valor) : alert("Agregar producto")
+    }
+
+
+  
     return (
          
             <div className='ProductDetail' style={{padding:50}}>
-               <h1>Detalle del producto</h1>
+                        <h1>Detalle del producto</h1>
                
                    
                    <Card key={dato.id} >
@@ -16,12 +27,23 @@ function ItemDetail({dato}) {
                     <Card.Content>
                       <Card.Header> {dato.title} </Card.Header>
                       <Card.Meta>
-                        <span className='date'>{dato.price}</span>
+                        <span className='price'> {dato.price}</span>
                       </Card.Meta>
+                      <Card.Meta>{`STOCK: ${dato.stock - count}`} </Card.Meta>
                       <Card.Description>
                         {dato.detalle}
                       </Card.Description>
-                      <ItemCount />
+
+                      <span>
+                     { count === null ? <ItemCount producto ={dato} onAdd={onAdd} />
+                     :
+                     <Link to='/cart'>
+                        <Button > Terminar Compra </Button>
+                      </Link>
+                      }
+                     
+                      </span>
+                      
                     </Card.Content>
                    
                   </Card>
