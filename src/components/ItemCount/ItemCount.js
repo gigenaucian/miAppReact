@@ -18,7 +18,7 @@ function ItemCount( {data , stock =10,  onAdd} ) {
 
     return (
         <>
-            <span className='contador-conteiner'>
+            <span className='conteiner'>
                 <Button onClick={quitar}> - </Button>
                 
                 <input 
@@ -26,7 +26,7 @@ function ItemCount( {data , stock =10,  onAdd} ) {
                 value= {count}
                 />
                 <Button onClick={() => agregar(stock)} > + </Button> 
-                <Button onClick={() => onAdd(count)}> Comprar </Button>
+                <Button onClick={() => onAdd(count)} id= 'btnCompra'> Comprar </Button>
             </span>
         </>
     )
