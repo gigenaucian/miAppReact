@@ -16,15 +16,15 @@ import ItemListConteiner from './components/ItemListContainer/ItemListContainer'
 import cart from './Views/Cart/cart.js'
 
 
-
-
+//importo el provider y envolver 
+import { CartProvider } from './CartContext';
 
 
 const  App = () => {
   
   return (
-    
-    
+    <CartProvider>
+  
     <Router>
     <div className="App">
     
@@ -51,8 +51,8 @@ const  App = () => {
 
 
    </Router>
-    
-    
+
+   </CartProvider>
   );
 }
 

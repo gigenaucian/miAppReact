@@ -1,11 +1,17 @@
 
-import React, {useState} from 'react';
+import React, {useState } from 'react';
 import  './ItemCount.css';
 import { Button } from 'semantic-ui-react'
 
 
 
-function ItemCount( {data , stock =10,  onAdd} ) {
+
+
+function ItemCount( { stock =10,  onAdd} ) {
+
+
+
+
     const [count, setCount] = useState(0);
 
     const agregar = (max) => {

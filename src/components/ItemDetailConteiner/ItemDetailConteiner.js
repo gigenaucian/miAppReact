@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect} from 'react'
 import axios from 'axios'
 import ItemDetail from '../ItemDetail/ItemDetail'
-import {Link} from 'react-router-dom'
+
 
 
 

@@ -1,7 +1,9 @@
-.otro {
+#otros {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  width: 90vw;
+  height: 150vh;
+  margin: 30px;
 }

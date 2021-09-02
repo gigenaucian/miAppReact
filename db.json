@@ -2,7 +2,7 @@
    "products": [
        {
            "id": 1 ,
-           "title":"Cuencos",
+           "title":"Cuenco SOFIA",
            "stock": 10,
            "description": "confeccionado a mano",
            "price": 1000,
@@ -13,7 +13,7 @@
        {
            
            "id": 2,
-           "title":"Fuentes",
+           "title":"Fuente FELICITAS",
            "stock": 10,
            "description":"apto microhondas",
            "price": 700,
@@ -24,7 +24,7 @@
       {
            
        "id": 3,
-       "title": "Macetas",
+       "title": "Maceta MICAELA",
        "stock": 10,
        "description":" modelado a mano, sin moldes ",
        "price": 800,
@@ -34,19 +34,30 @@
    },
    {
            
+    "id": 7,
+    "title": "Macetas Sofia",
+    "stock": 10,
+    "description":" modelado a mano, sin moldes ",
+    "price": 1800,
+    "pictureUrl": "..//foto14.jpg",
+    "category": "macetas",
+    "detalle":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) "
+},
+   {
+           
        "id": 4,
-       "title": "Kit matero",
+       "title": "Kit Felita",
        "stock": 10,
-       "description":" Contiene mate pintado a mano, azucarera, yerbera, 500 grs de yerba ' Ahinco'  ",
-       "price": 900,
-       "pictureUrl": "..//foto3.jpg",
+       "description":"Incluye cuenco, portavela, fuente, platos*4",
+       "price": 2900,
+       "pictureUrl": "..//foto2.jpg",
        "category": "COMBO",
        "detalle":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) "
    },
    {
            
        "id": 5,
-       "title": "Kit Sushi",
+       "title": "Kit Mate",
        "stock": 10,
        "description":" Contiene mate pintado a mano, azucarera, yerbera, 500 grs de yerba ' Ahinco'  ",
        "price": 900,
@@ -60,7 +71,7 @@
      "title": "Kit Love",
      "stock": 10,
      "description":" Contiene mate pintado a mano, azucarera, yerbera, 500 grs de yerba ' Ahinco'  ",
-     "pictureUrl": "..//foto3.jpg",
+     "pictureUrl": "..//header.jpg",
      "category": "COMBO",
      "detalle":"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) "
  }

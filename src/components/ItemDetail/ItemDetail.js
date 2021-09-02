@@ -3,19 +3,25 @@ import ItemCount from '../ItemCount/ItemCount'
 import { Card,  Image ,Button } from 'semantic-ui-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import {  useCartContext } from '../../CartContext';
 
 
 
-function ItemDetail({dato}) {
+function ItemDetail({ dato }) {
+
+  const { addToCart } = useCartContext()
+
   
+
+
   const[count, setCount] = useState(null)
   
-  const onAdd = (valor) => {
-    valor > 0 ?  setCount(valor) : alert("Agregar producto")
+  const onAdd = (count) => {
+    count > 0 ? 
+   setCount((addToCart(dato, count)), count) : alert("Agregar producto")
     }
-
-
-  
+    
+   
     return (
          
             <div className='ProductDetail' style={{padding:50}}>
@@ -35,7 +41,7 @@ function ItemDetail({dato}) {
                       </Card.Description>
 
                       <span>
-                     { count === null ? <ItemCount producto ={dato} onAdd={onAdd} />
+                     { count === null ? <ItemCount producto ={dato} onAdd={onAdd}  />
                      :
                      <Link to='/cart'>
                         <Button > Terminar Compra </Button>
