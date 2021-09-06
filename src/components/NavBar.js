@@ -8,14 +8,14 @@ const NavBar = ()=>{
         
     <nav>
          <div className="logo">
-            <p><Link to="/"><img src="./logoFelita.jpg" class="logofeli" alt="logo Felita"></img></Link></p>
+            <Link to="/"><img src="./logoFelita.jpg" class="logofeli" alt="logo Felita"></img></Link>
          </div>   
         <ul>
-            <Link to='/'> Home </Link>
-            <Link to='/category/COMBO'> Combos </Link>
-            <Link to ='/category/macetas'> Macetas</Link>
-            
-            <Link to='/cart'> <CartWidget /></Link>
+            <Link to='/'> <li> Home </li></Link>
+            <Link to='/category/COMBO'><li> Combos </li></Link>
+            <Link to ='/category/macetas'> <li>Macetas</li></Link>
+            <Link to=""> <li>Contacto </li></Link>
+            <Link to='/cart'><li> <CartWidget /></li></Link>
            
         </ul>
         

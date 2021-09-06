@@ -24,7 +24,7 @@ nav {
   padding-bottom: 20px;
   box-sizing: border-box;
 }
-Link {
+li {
   display: inline;
   padding: 10px;
   padding-left: 0;
@@ -33,7 +33,7 @@ nav ul {
   width: 90%;
   margin-left: 30px;
 }
-nav ul Link {
+nav ul li {
   font-size: 25px;
   text-decoration: none;
   color: #888888;

@@ -14,10 +14,10 @@ import ItemDetailConteiner from './components/ItemDetailConteiner/ItemDetailCont
 import macetas from './Views/Contacto/macetas'
 import ItemListConteiner from './components/ItemListContainer/ItemListContainer';
 import cart from './Views/Cart/cart.js'
-
+import { CartProvider } from './CartContext';
 
 //importo el provider y envolver 
-import { CartProvider } from './CartContext';
+import { CartContext } from './CartContext';
 
 
 const  App = () => {
