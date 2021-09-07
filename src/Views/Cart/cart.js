@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, { useState }  from 'react';
 import {  CartContext, useCartContext } from '../../CartContext';
 import { Icon } from 'semantic-ui-react'
 import {Link} from 'react-router-dom';
@@ -8,7 +8,7 @@ import './cart.css'
 
 const Cart = () => {
 
-    const {cart, cartPrice, clear, deleteItem } =useCartContext() ;
+    const {cart, cartPrice, clear, deleteItem } =useCartContext([]) ;
     
     const precioTotal = cartPrice();
     
@@ -18,7 +18,7 @@ const Cart = () => {
             <h1>Carrito de Compras</h1>
             
                 <div>
-                     {cart ===0 ?
+                     {cart.length === 0 ?
                     (<div>
                         <p>Tu Carrito esta vacio</p>
                         <Link to='/'>
