@@ -11,14 +11,11 @@ function ItemDetail({ dato }) {
 
   const { addToCart } = useCartContext()
 
-  
-
-
   const[count, setCount] = useState(null)
   
   const onAdd = (count) => {
     count > 0 ? 
-   setCount((addToCart(dato, count)), count) : alert("Agregar producto")
+   setCount((addToCart(dato, count)),count) : alert("Agregar producto")
     }
     
    

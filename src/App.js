@@ -17,7 +17,7 @@ import cart from './Views/Cart/cart.js'
 import { CartProvider } from './CartContext';
 
 //importo el provider y envolver 
-import { CartContext } from './CartContext';
+
 
 
 const  App = () => {

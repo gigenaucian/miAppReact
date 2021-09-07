@@ -1,7 +1,7 @@
 import React from 'react';
 import './CartWidget.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus  } from '@fortawesome/free-solid-svg-icons';
 import { useCartContext } from '../../CartContext';
 
 
@@ -15,10 +15,13 @@ const CartWidget = () => {
 
 
     return (
-        <div className='icono'>
+    <div className='icono' >
+        {itemsTotal !== 0 && 
+             <div className='icono'>
             <FontAwesomeIcon class='icono' icon={faCartPlus}  />
-            {itemsTotal}
-        </div>
+            { itemsTotal}
+            </div> }
+     </div>
     )
 };
 
