@@ -7,7 +7,7 @@ import { Button } from 'semantic-ui-react'
 
 
 
-function ItemCount( { stock =10,  onAdd} ) {
+function ItemCount( { stock =10,  onAdd, producto} ) {
 
 
 
@@ -32,7 +32,7 @@ function ItemCount( { stock =10,  onAdd} ) {
                 value= {count}
                 />
                 <Button onClick={() => agregar(stock)} > + </Button> 
-                <Button onClick={() => onAdd(count)} id= 'btnCompra'> Comprar </Button>
+                <Button onClick={() => onAdd(count , producto )} id= 'btnCompra'> Comprar </Button>
             </span>
         </>
     )

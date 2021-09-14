@@ -26,7 +26,7 @@ const ItemListConteiner = () => {
 }
 
   useEffect(()=>{
-    console.log('adentro del useffect')
+    //console.log('adentro del useffect')
     getProducts()
   },[])
  

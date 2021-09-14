@@ -7,7 +7,7 @@ import {  useCartContext } from '../../CartContext';
 
 
 
-function ItemDetail({ dato, data}) {
+function ItemDetail({ data }) {
 
   const { addToCart } = useCartContext()
 
@@ -15,7 +15,7 @@ function ItemDetail({ dato, data}) {
   
   const onAdd = (count) => {(
     count > 0 ? 
-  (addToCart(dato , count)) : alert("Agregar producto")
+  (addToCart(data , count)) : alert("Agregar producto")
   )
   setCount(count)
   }
@@ -32,7 +32,7 @@ function ItemDetail({ dato, data}) {
                     <Card.Content>
                       <Card.Header> {data.title} </Card.Header>
                       <Card.Meta>
-                        <span className='price'> {data.price}</span>
+                        <span className='price'>$ {data.price}</span>
                       </Card.Meta>
                       <Card.Meta>{`STOCK: ${data.stock - count}`} </Card.Meta>
                       <Card.Description>

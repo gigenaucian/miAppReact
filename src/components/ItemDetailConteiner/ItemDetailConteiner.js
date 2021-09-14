@@ -3,32 +3,35 @@ import { useState, useEffect} from 'react'
 
 import ItemDetail from '../ItemDetail/ItemDetail'
 
-import { getFirestore, collection, query, where, getDocs ,docs } from "firebase/firestore";
+import { getFirestore, collection, query, where, getDoc ,doc } from "firebase/firestore";
  import {db} from '../../firebase'
 
 
-const  ItemDetailConteiner= ({itemId}) => {
+const  ItemDetailConteiner= ({ match}) => {
+   const  prodId = match.params.id
     
-    const [product, setProduct] = useState([]);
+    const [product, setProduct] = useState({});
   
 
+
+
+    const getProducts = async () =>{
+        const productoReference = doc(db, "productos", prodId)
+        const productoDatos = await getDoc(productoReference)
+        console.log('product tiene productodatos', productoDatos)
+
+       
+        setProduct(productoDatos.data())
+        };
+        
+
     useEffect(() => {
-
-        const getProducts = async () =>{
-          
-            const producto = query(collection(db,"productos"))
-            where('id','=', itemId)
-    
-            const q =(await getDocs(producto)).docs;
-            setProduct(q[0].data())
-            };
+        getProducts();
+       
+     }, [prodId] )
 
 
-       getProducts();
-     }, [itemId] )
-
-
-       console.log(product)
+      console.log(product)
 
 
        return (
