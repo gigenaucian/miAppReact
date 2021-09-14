@@ -7,16 +7,18 @@ import {  useCartContext } from '../../CartContext';
 
 
 
-function ItemDetail({ dato }) {
+function ItemDetail({ dato, data}) {
 
   const { addToCart } = useCartContext()
 
   const[count, setCount] = useState(null)
   
-  const onAdd = (count) => {
+  const onAdd = (count) => {(
     count > 0 ? 
-   setCount((addToCart(dato, count)),count) : alert("Agregar producto")
-    }
+  (addToCart(dato , count)) : alert("Agregar producto")
+  )
+  setCount(count)
+  }
     
    
     return (
@@ -25,20 +27,20 @@ function ItemDetail({ dato }) {
                         <h1>Detalle del producto</h1>
                
                    
-                   <Card key={dato.id} >
-                    <Image src={dato.pictureUrl} wrapped ui={false} />
+                   <Card key={data.id} >
+                    <Image src={data.pictureUrl} wrapped ui={false} />
                     <Card.Content>
-                      <Card.Header> {dato.title} </Card.Header>
+                      <Card.Header> {data.title} </Card.Header>
                       <Card.Meta>
-                        <span className='price'> {dato.price}</span>
+                        <span className='price'> {data.price}</span>
                       </Card.Meta>
-                      <Card.Meta>{`STOCK: ${dato.stock - count}`} </Card.Meta>
+                      <Card.Meta>{`STOCK: ${data.stock - count}`} </Card.Meta>
                       <Card.Description>
-                        {dato.detalle}
+                        {data.detalle}
                       </Card.Description>
 
                       <span>
-                     { count === null ? <ItemCount producto ={dato} onAdd={onAdd}  />
+                     { count === null ? <ItemCount producto ={data} onAdd={onAdd}  />
                      :
                      <Link to='/cart'>
                         <Button > Terminar Compra </Button>
@@ -57,4 +59,4 @@ function ItemDetail({ dato }) {
     )
 }
 
-export default ItemDetail
+export default ItemDetail; 

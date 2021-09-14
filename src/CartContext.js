@@ -10,8 +10,8 @@ export const useCartContext =() =>useContext(CartContext)
 
 export const CartProvider = ({children}) =>{
     const [cart, setCart] = useState ([]);
+    
 
-   console.log(cart)
 
 
     const isInCart = (id) =>cart.some((dato)=>dato.id ===id) //me devuelve true/false
@@ -44,8 +44,6 @@ export const CartProvider = ({children}) =>{
     const itemsTotal =()=>{ cart.reduce((accumulador, dato)=>{
         return accumulador + dato.quantity
         },0)}
-
-
 
 
     const cartPrice = () => {

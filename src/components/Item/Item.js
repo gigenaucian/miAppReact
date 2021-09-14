@@ -10,7 +10,7 @@ function Item({ data }) {
   return(
     <Link to={`/item/${data.id}`}>
     <Card className='cardConteiner' key={data.id} id='card'>
-    <Image src={data.pictureUrl} wrapped ui={false} />
+    <Image src={data.pictureUrl} wrapped ui={false} className="img" />
     <Card.Content>
       <Card.Header> {data.title} </Card.Header>
       <Card.Meta>

@@ -1,29 +1,46 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
-import axios from 'axios'
+
 import ItemDetail from '../ItemDetail/ItemDetail'
 
+import { getFirestore, collection, query, where, getDocs ,docs } from "firebase/firestore";
+ import {db} from '../../firebase'
 
 
-
-const  ItemDetailConteiner= ({match}) => {
-    let prodId = match.params.id;
-    const [dato ,setDato] = useState([]);
-
+const  ItemDetailConteiner= ({itemId}) => {
     
-    useEffect(()=> {
-        axios(`http://localhost:3003/products/${prodId}`).then((res)=> 
-        setDato(res.data))
-    },[prodId]);
+    const [product, setProduct] = useState([]);
+  
+
+    useEffect(() => {
+
+        const getProducts = async () =>{
+          
+            const producto = query(collection(db,"productos"))
+            where('id','=', itemId)
+    
+            const q =(await getDocs(producto)).docs;
+            setProduct(q[0].data())
+            };
 
 
-   
+       getProducts();
+     }, [itemId] )
+
+
+       console.log(product)
+
+
        return (
-        
-        <ItemDetail dato={dato}/>
-        
+           <div className='item'>
+
+               
+                   <ItemDetail data={product}/>
+             
+                    
+            </div>
        )
 
-
-    }
-export default ItemDetailConteiner
+       }
+    
+export default ItemDetailConteiner;

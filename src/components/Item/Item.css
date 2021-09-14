@@ -1,4 +1,12 @@
-.cardConteiner {
+#card {
   display: flex;
   flex-wrap: wrap;
+  height: 500px;
+  justify-content: space-around;
+  margin: 20px;
+  align-items: center;
+}
+.img {
+  width: 100%;
+  height: auto;
 }

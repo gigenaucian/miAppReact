@@ -1,52 +1,50 @@
-
 import {React, useState, useEffect} from 'react'
 import ItemList from '../ItemList/ItemList';
 import "./ItemListContainer.css"
-import { useParams } from 'react-router-dom';
+
+import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+import {db} from '../../firebase'
 
 
 
-const ItemListConteiner = ({respuesta}) => {
-  const [products, setProducts] = useState([])
-  const { categoryId } = useParams()
+
+const ItemListConteiner = () => {
+  const [productos, setProductos] =useState([])
  
-  useEffect(() => {
-       fetch(`http://localhost:3003/products`).then((Response)=>Response.json())
-       .then((respuesta)=>{
-         return(
-        categoryId
-        ? setProducts(respuesta.filter((x)=> x.category === categoryId))
-         : setProducts(respuesta)
-         )}
 
+  const getProducts = async ()=>{
+  const products =[]
 
-  )}, [categoryId],) 
+  const datos = query(collection(db, 'productos'))
+  const querySnapshot = await getDocs(datos)
+  querySnapshot.forEach((doc)=> {
+   products.push({...doc.data(),id: doc.id}) 
+  // console.log(products)
+  })
 
-     
-    
+  setProductos(products)
+}
+
+  useEffect(()=>{
+    console.log('adentro del useffect')
+    getProducts()
+  },[])
+ 
    
 
   return(
 
     <div className="OTRO">
-    <h1>{categoryId}</h1>
+  <h1>{productos.id}</h1>
    
       
       <div className='otro'> 
      
      
           
-             <ItemList key={products.category} product={products}  />
+             <ItemList key={productos} product={productos}  />
 
       </div>
-        
-    
-      
-    
-          
-            
-     
-       
 
     </div>
     

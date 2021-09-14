@@ -1,5 +1,5 @@
-import React, { useState }  from 'react';
-import {  CartContext, useCartContext } from '../../CartContext';
+import React from 'react';
+import {  useCartContext } from '../../CartContext';
 import { Icon } from 'semantic-ui-react'
 import {Link} from 'react-router-dom';
 import './cart.css'
@@ -8,7 +8,7 @@ import './cart.css'
 
 const Cart = () => {
 
-    const {cart, cartPrice, clear, deleteItem } =useCartContext([]) ;
+    const {cart, cartPrice, clear, deleteItem } =useCartContext() ;
     
     const precioTotal = cartPrice();
     
@@ -26,7 +26,6 @@ const Cart = () => {
                         </Link></div>)
                         : 
                         (
-                  
                     <div>        
                     <ul>
                     {

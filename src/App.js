@@ -4,8 +4,6 @@ import {BrowserRouter as Router,  Switch, Route } from 'react-router-dom';
 
 
 //componentes
-
-
 import NavBar from './components/NavBar';
 import Footer from './components/Footer/Footer';
 import ItemDetailConteiner from './components/ItemDetailConteiner/ItemDetailConteiner';
@@ -14,9 +12,10 @@ import ItemDetailConteiner from './components/ItemDetailConteiner/ItemDetailCont
 import macetas from './Views/Contacto/macetas'
 import ItemListConteiner from './components/ItemListContainer/ItemListContainer';
 import cart from './Views/Cart/cart.js'
+//importo el provider y envolver 
 import { CartProvider } from './CartContext';
 
-//importo el provider y envolver 
+
 
 
 
@@ -26,11 +25,11 @@ const  App = () => {
     <CartProvider>
   
     <Router>
-    <div className="App">
+      <div className="App">
     
-      <header className="App-header">
-      <NavBar />  
-      </header>
+        <header className="App-header">
+          <NavBar />  
+        </header>
 
       <Switch> 
         <Route path='/' exact component={ ItemListConteiner } />
@@ -39,13 +38,13 @@ const  App = () => {
         <Route path='/macetas'  component={ macetas } />
         <Route path='/cart'  component={ cart } />
 
-     </Switch>
+      </Switch>
 
 
 
        
 
-      <Footer title="instagram" />
+      <Footer title="instagram"/>
       
     </div>
 
