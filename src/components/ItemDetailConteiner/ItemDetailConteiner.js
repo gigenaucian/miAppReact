@@ -8,8 +8,7 @@ import { getFirestore, collection, query, where, getDoc ,doc } from "firebase/fi
 
 
 const  ItemDetailConteiner= ({ match}) => {
-   const  prodId = match.params.id
-    
+    const  prodId = match.params.id
     const [product, setProduct] = useState({});
   
 
@@ -18,16 +17,15 @@ const  ItemDetailConteiner= ({ match}) => {
     const getProducts = async () =>{
         const productoReference = doc(db, "productos", prodId)
         const productoDatos = await getDoc(productoReference)
-        console.log('product tiene productodatos', productoDatos)
-
-       
-        setProduct(productoDatos.data())
+        //console.log('product tiene productodatos', productoDatos)
+            setProduct(productoDatos.data())
         };
+
+    
         
 
     useEffect(() => {
         getProducts();
-       
      }, [prodId] )
 
 
