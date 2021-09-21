@@ -15,7 +15,7 @@ export const CartProvider = ({children}) =>{
 
 
 
-    const isInCart = (id) =>cart.some((dato)=>dato.id ===id) //me devuelve true/false
+    const isInCart = (id) =>cart.some((dato)=>dato.id !==id) //me devuelve true/false
 
     const addToCart =(dato, quantity) =>{
         if(isInCart(dato.id)){

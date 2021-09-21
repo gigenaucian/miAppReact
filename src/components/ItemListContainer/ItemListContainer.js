@@ -2,7 +2,7 @@ import {React, useState, useEffect} from 'react'
 import ItemList from '../ItemList/ItemList';
 import "./ItemListContainer.css"
 import { useParams } from 'react-router-dom';
-import { getFirestore, collection, query, where, getDocs,docs } from "firebase/firestore";
+import { getFirestore, collection, query, where, getDocs} from "firebase/firestore";
 import {db} from '../../firebase'
 
 
@@ -13,8 +13,6 @@ const ItemListConteiner = () => {
   const { categoryId } = useParams()
 
 
-  
-  
   const getProducts = async ()=>{
   const products =[]
   if(categoryId){
@@ -48,7 +46,7 @@ const ItemListConteiner = () => {
   return(
 
     <div className="OTRO">
-  <h1>{'*'}</h1>
+  <h1>{categoryId}</h1>
    
       
       <div className='otro'> 

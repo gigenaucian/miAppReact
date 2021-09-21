@@ -31,8 +31,8 @@ function ItemDetail({ data }) {
                     <Image src={data.pictureUrl} wrapped ui={false} />
                     <Card.Content>
                       <Card.Header> {data.title} </Card.Header>
-                      <Card.Meta>
-                        <span className='price'>$ {data.price}</span>
+                      <Card.Meta> 
+                        <span className='price' >$ {data.price}</span>
                       </Card.Meta>
                       <Card.Meta>{`STOCK: ${data.stock - count}`} </Card.Meta>
                       <Card.Description>

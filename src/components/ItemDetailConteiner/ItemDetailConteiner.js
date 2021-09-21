@@ -17,8 +17,11 @@ const  ItemDetailConteiner= ({ match}) => {
     const getProducts = async () =>{
         const productoReference = doc(db, "productos", prodId)
         const productoDatos = await getDoc(productoReference)
-        //console.log('product tiene productodatos', productoDatos)
-            setProduct(productoDatos.data())
+        //console.log('product tiene productodatos', productoDatos.data())
+        const aux = productoDatos.data()
+        aux.id = prodId
+            setProduct(aux)
+           // console.log('aux tiene productodatos', aux)
         };
 
     

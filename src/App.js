@@ -14,6 +14,7 @@ import ItemListConteiner from './components/ItemListContainer/ItemListContainer'
 import cart from './Views/Cart/cart.js'
 //importo el provider y envolver 
 import { CartProvider } from './CartContext';
+import Checkout from './Views/Checkout/Checkout';
 
 
 
@@ -37,6 +38,7 @@ const  App = () => {
         <Route  path='/item/:id' component={ItemDetailConteiner}/>
         <Route path='/macetas'  component={ macetas } />
         <Route path='/cart'  component={ cart } />
+        <Route path ='/Checkout' component ={ Checkout } />
 
       </Switch>
 
