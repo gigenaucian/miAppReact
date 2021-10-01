@@ -9,10 +9,7 @@ const Footer = ({title}) => {
     return (
         <div className="Footer">
             <h3>Seguinos en {title}</h3>
-            <img src={img} alt="redes" width="30px" />
-            
-
-            
+            <a href='https://www.instagram.com/felita.tiendadeceramica/'> <img src={img} alt="redes" width="30px" /></a> 
         </div>
     )
 };

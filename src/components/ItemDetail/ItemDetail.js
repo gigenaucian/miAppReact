@@ -1,6 +1,6 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
-import { Card,  Image ,Button } from 'semantic-ui-react'
+import { Card,  Image ,Button , Grid} from 'semantic-ui-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {  useCartContext } from '../../CartContext';
@@ -23,38 +23,37 @@ function ItemDetail({ data }) {
    
     return (
          
-            <div className='ProductDetail' style={{padding:50}}>
+            <div className='ProductDetail' style={{padding:100}}>
                         <h1>Detalle del producto</h1>
+
+
+    <Grid key={data.id}>
+    <Grid.Column width={4}>
+    <Image src={data.pictureUrl} />
+    </Grid.Column>
+    <Grid.Column width={8}>
+    {data.title} -
+    {data.detalle}-
+    </Grid.Column>
+    <Grid.Column width={3}> Valor:
+    <span> $ {data.price} </span>
+    </Grid.Column>
+    <Grid.Column width={3}>
+    {`STOCK: ${data.stock - count}`}
+    </Grid.Column>
+    </Grid>
                
                    
-                   <Card key={data.id} >
-                    <Image src={data.pictureUrl} wrapped ui={false} />
-                    <Card.Content>
-                      <Card.Header> {data.title} </Card.Header>
-                      <Card.Meta> 
-                        <span className='price' >$ {data.price}</span>
-                      </Card.Meta>
-                      <Card.Meta>{`STOCK: ${data.stock - count}`} </Card.Meta>
-                      <Card.Description>
-                        {data.detalle}
-                      </Card.Description>
+                  
 
-                      <span>
-                     { count === null ? <ItemCount producto ={data} onAdd={onAdd}  />
-                     :
-                     <Link to='/cart'>
-                        <Button > Terminar Compra </Button>
-                      </Link>
-                      }
                      
-                      </span>
-                      
-                    </Card.Content>
-                   
-                  </Card>
-                   
- 
-           </div>
+       { count === null ? <ItemCount producto ={data} onAdd={onAdd}  />
+                     :
+        <Link to='/cart'>
+        <Button > Terminar Compra </Button>
+         </Link>  }
+          
+     </div>
         
     )
 }

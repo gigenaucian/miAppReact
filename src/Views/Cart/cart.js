@@ -3,19 +3,19 @@ import {  useCartContext } from '../../CartContext';
 import { Icon } from 'semantic-ui-react'
 import {Link} from 'react-router-dom';
 import './cart.css'
-
+import { Table } from 'reactstrap';
 
 
 const Cart = () => {
 
-    const {cart, cartPrice, clear, deleteItem } =useCartContext() ;
-    
+    const {cart, cartPrice, clear, deleteItem ,itemsTotal} =useCartContext() ;
+    const cantidadTotal= itemsTotal();
     const precioTotal = cartPrice();
     
     return (
-        <section className="cart">
+        <section className="cart" style={{height:"700px"}}>
                 
-            <h1>Carrito de Compras</h1>
+            <h1 style={{padding:"100px"}}>Tu carrito</h1>
             
                 <div>
                      {cart.length === 0 ?
@@ -26,29 +26,51 @@ const Cart = () => {
                         </Link></div>)
                         : 
                         (
-                    <div>        
-                    <ul>
+                    <div>   
+                        <Table>
+                            <thead>
+                                <tr>
+                                <th>ID</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unitario</th>
+                                <th>Total</th>
+                                <th>#</th>
+                                </tr>
+                            </thead>  
+                            <tfoot>
+                    <tr>
+                        <td colspan="3" align="right" id="cart_total">
+                          El total de tu compra es:   
+                          $ {precioTotal}
+                        </td>
+                    </tr>
+                </tfoot> 
+                    
                     { 
                         cart.map((data)=> (
-                            <li key={data.id}>
-                                <img src={data.pictureUrl} alt="" style={{margin: "10px"},{width:"10%"}}/>
-                                <div>
-                                <h2>{data.title}</h2>
+
+                            <tbody  key={data.id}>
+                                <tr>
+                                <th scope="row">{data.id}</th>
+                                <td>{data.title}</td>
+                                <td>{data.quantity}</td>
+                                <td> {data.price}</td>
+                                <td>$ {data.price * data.quantity}</td>
+                                <td><Icon name ="trash alternative" onClick={() => deleteItem(data.id)} style={{margin: "10px 50px 10px 50px" }} /> </td>
+                                </tr>
                                 
-                                    <p>Cantidad: {data.quantity}</p>
-                                    <p>Precio por unidad: <strong>${data.price}</strong></p>
-                                    <p>Precio total: <strong> $ {data.price * data.quantity}</strong></p>
-                                    
-                                    <Icon name ="trash alternative" onClick={() => deleteItem(data.id)} style={{margin: "10px 50px 10px 50px" }} /> 
-                                </div>
-                            </li>
-                        ), console.log(cart))
-                    }
-                 <button style={{padding: "10px 50px 10px 50px" }} onClick={() => clear()}>Vaciar carrito</button>
-                </ul>
+                            </tbody>
+                            
+                            
+                            
+                        )) }
+                
+                         </Table>
                 
                 <div className="final">
-                    <p>Precio total: ${precioTotal} </p> 
+                <button style={{padding: "10px 50px 10px 50px" }} onClick={() => clear()}>Vaciar carrito</button>
+                    
                     <Link to="/Checkout">
                       <button style={{padding: "10px 50px 10px 50px" }}>  Finalizar compra </button>
                     </Link>

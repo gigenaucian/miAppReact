@@ -16,7 +16,7 @@ const CartWidget = () => {
 
     return (
     <div className='icono' >
-        {itemsTotal !== 0 && 
+        {itemsTotal >= 0 && 
              <div className='icono'>
             <FontAwesomeIcon class='icono' icon={faCartPlus} />
             { itemsTotal}

@@ -4,6 +4,7 @@ import "./ItemListContainer.css"
 import { useParams } from 'react-router-dom';
 import { getFirestore, collection, query, where, getDocs} from "firebase/firestore";
 import {db} from '../../firebase'
+import { Loader } from 'semantic-ui-react'
 
 
 
@@ -11,6 +12,7 @@ import {db} from '../../firebase'
 const ItemListConteiner = () => {
   const [productos, setProductos] =useState([])
   const { categoryId } = useParams()
+  const [loading , setLoading] = useState(true)
 
 
   const getProducts = async ()=>{
@@ -32,28 +34,28 @@ const ItemListConteiner = () => {
    products.push({...doc.data(),id: doc.id}) 
 
   })
-
   setProductos(products)
   }
   }
 
   useEffect(()=>{
     getProducts()
+    setTimeout(()=>{
+      setLoading(false)
+    },2000)
   },[categoryId])
  
   
 
   return(
 
-    <div className="OTRO">
+  <div className="OTRO">
   <h1>{categoryId}</h1>
    
       
       <div className='otro'> 
-     
-     
-          
-             <ItemList key={productos} product={productos} />
+              {loading ?  <Loader active inline='centered' /> :  <ItemList key={productos} product={productos} /> }
+            
 
       </div>
 

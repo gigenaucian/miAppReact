@@ -1,15 +1,15 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
-
 import ItemDetail from '../ItemDetail/ItemDetail'
-
-import { getFirestore, collection, query, where, getDoc ,doc } from "firebase/firestore";
- import {db} from '../../firebase'
+import {  getDoc ,doc } from "firebase/firestore";
+import {db} from '../../firebase'
+import { Loader } from 'semantic-ui-react'
 
 
 const  ItemDetailConteiner= ({ match}) => {
     const  prodId = match.params.id
     const [product, setProduct] = useState({});
+    const [loading, setLoading]= useState(true)
   
 
 
@@ -29,7 +29,10 @@ const  ItemDetailConteiner= ({ match}) => {
 
     useEffect(() => {
         getProducts();
-     }, [prodId] )
+        setTimeout(()=>{
+            setLoading(false)
+          },2000)
+     }, [])
 
 
       console.log(product)
@@ -37,14 +40,11 @@ const  ItemDetailConteiner= ({ match}) => {
 
        return (
            <div className='item'>
-
-               
-                   <ItemDetail data={product}/>
-             
-                    
+               {loading ? <Loader active inline='centered' /> : <ItemDetail data={product}/> }
+                   
             </div>
        )
 
-       }
+}
     
 export default ItemDetailConteiner;

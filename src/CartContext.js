@@ -1,8 +1,5 @@
 
 import React, { useContext , useState , createContext} from "react"
-
-
-
 export const CartContext = createContext()
 export const useCartContext =() =>useContext(CartContext)
 
@@ -15,7 +12,7 @@ export const CartProvider = ({children}) =>{
 
 
 
-    const isInCart = (id) =>cart.some((dato)=>dato.id !==id) //me devuelve true/false
+    const isInCart = (id) =>cart.some((dato)=>dato.id ===id) //me devuelve true/false
 
     const addToCart =(dato, quantity) =>{
         if(isInCart(dato.id)){

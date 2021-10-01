@@ -1,16 +1,17 @@
 import React from 'react';
 import { useState } from 'react'
-import firebase from 'firebase/app';
+import {Link} from 'react-router-dom'
 import '@firebase/firestore';
-import { getFirestore, collection, query, where, getDocs,docs, Timestamp, addDoc } from "firebase/firestore";
+import {  collection, Timestamp, addDoc } from "firebase/firestore";
 import {  useCartContext } from '../../CartContext';
 import './Checkout.css'
 import { db } from '../../firebase'
+import ModalExit from '../../components/Modal/ModalExit'
 
 
 
 const Checkout = () => {
-  //const db = getFirestore();
+
   const {cart, cartPrice} = useCartContext()
   const [data_usuario, setData_usuario] = useState([])
   const precioTotal = cartPrice();
@@ -30,26 +31,27 @@ const Checkout = () => {
         buyer:{
             nombre: data_usuario.nombre,
             apellido:data_usuario.apellido,
-            email: data_usuario.email
+            email: data_usuario.email,
+            emailx2: data_usuario.emailx2
         },
         items: cart,
         date: Timestamp.now(),
         total: precioTotal
         
     }
-    
     const docRef = await addDoc((orders), nuevaOrder)
     setHayorden(docRef.id)
-    //.then(({id}) => setOrderId(id))
-    //.catch(error => console.log(error))
-    console.log('documento :', docRef)
-    console.log('documento :', docRef.id)
 }
    
 
   return (
     
       <section className="checkout" key={cart.id}>
+          <div className={`compraFinalizada ${hayOrden ? 'show' : 'hide'}`}>
+                    <h1>Gracias por tu compra</h1>
+                    <Link to="/"><button >Inicio</button></Link>
+               
+            </div>
         <div className={`container ${hayOrden ? 'hide' : 'show'}`}>
         <h1>Checkout</h1>
        { cart.map(item => {return  (
@@ -68,15 +70,13 @@ const Checkout = () => {
         <form method='POST' onSubmit={handleSubmitForm} >
             <input onKeyUp={handleChange} onBlur={handleChange} type="text" name="nombre" placeholder="Nombre" />
             <input onKeyUp={handleChange} onBlur={handleChange} type="text" name="apellido" placeholder="Apellido" />
-            <input onKeyUp={handleChange} onBlur={handleChange} type="email" name="email" placeholder="E-mail" />
-          
-            <button onSubmit={handleSubmitForm} >Pagar</button>
+            <input onKeyUp={handleChange} onBlur={handleChange} type="email" name="email" placeholder="E-mail" required />
+            <input onKeyUp={handleChange} onBlur={handleChange} type="email" name="emailx2" placeholder="Reingrese su E-mail" required />
+            < ModalExit onSubmit={handleSubmitForm}/>
+            {/* <button onSubmit={handleSubmitForm} >Pagar</button> */}
         </form>
        
-            <div className={`compraFinalizada ${hayOrden ? 'show' : 'hide'}`}>
-                <h2>¡Compra exitosa!</h2>
-                <p>Este es tu numero de seguimiento: {hayOrden}</p>
-            </div>
+            
         
     </div>
 </section>
