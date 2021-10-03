@@ -1,14 +1,35 @@
 
 import React, { useContext , useState , createContext} from "react"
+import { 
+    addDoc,
+	serverTimestamp, 
+	collection, 
+	query, 
+	orderBy, 
+	getDocs, 
+	updateDoc, 
+	doc, 
+	limit, 
+} from "firebase/firestore"
+import { db } from './firebase'
 export const CartContext = createContext()
 export const useCartContext =() =>useContext(CartContext)
 
-
+const getLocalStorage = () => {
+	if (JSON.parse(localStorage.getItem('cart'))) {
+		return JSON.parse(localStorage.getItem('cart'))
+	} else{
+		return []
+	}
+}
 
 
 export const CartProvider = ({children}) =>{
-    const [cart, setCart] = useState ([]);
+    const [cart, setCart] = useState (getLocalStorage());
     
+    const setLocalStorage = () => {
+		localStorage.setItem('cart', JSON.stringify(cart))
+	}
 
 
 
@@ -32,6 +53,7 @@ export const CartProvider = ({children}) =>{
     const deleteItem = (itemId) => {
         
         setCart(cart.filter((item) => item.id !== itemId));
+        cart.length === 1 && localStorage.clear()
       };
 
 
@@ -48,9 +70,20 @@ export const CartProvider = ({children}) =>{
         return cart.reduce((accumulator, dato) => 
         { return Number(accumulator + dato.quantity * dato.price)}, 0);
     }
+    const updateItemStock = async (id, quantity) => {
+		const updateStock = doc(db, 'products', id)
+
+        await updateDoc(updateStock, {
+            "stock": quantity
+        })
+	}
+
+  
+
+
 
     return (
-        <CartContext.Provider value= {{cart,setCart, addToCart, deleteItem, clear, cartPrice, itemsTotal, isInCart }}>
+        <CartContext.Provider value= {{cart,setCart,updateItemStock ,setLocalStorage, addToCart, deleteItem, clear, cartPrice, itemsTotal, isInCart }}>
                 {children}
         </CartContext.Provider>
     )
