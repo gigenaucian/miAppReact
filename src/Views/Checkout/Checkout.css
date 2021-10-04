@@ -5,11 +5,9 @@
 .checkout h2 {
   text-align: center;
   font-size: 3rem;
-  color: var(--color-secundario);
 }
 
 h3 {
-  color: var(--color-principal);
   font-size: 2rem;
 }
 
@@ -18,7 +16,7 @@ p {
 }
 
 .checkout form {
-  margin-top: 3rem;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
 }
@@ -27,12 +25,12 @@ p {
 .checkout form button {
   font-size: 15px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
+  width: 1000px;
 }
 
 button {
-  background-color: aquamarine;
   font-weight: bolder;
   padding: 10px;
   border: none;

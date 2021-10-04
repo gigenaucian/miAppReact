@@ -1,17 +1,6 @@
 
 import React, { useContext , useState , createContext} from "react"
-import { 
-    addDoc,
-	serverTimestamp, 
-	collection, 
-	query, 
-	orderBy, 
-	getDocs, 
-	updateDoc, 
-	doc, 
-	limit, 
-} from "firebase/firestore"
-import { db } from './firebase'
+
 export const CartContext = createContext()
 export const useCartContext =() =>useContext(CartContext)
 
@@ -25,16 +14,20 @@ const getLocalStorage = () => {
 
 
 export const CartProvider = ({children}) =>{
-    const [cart, setCart] = useState (getLocalStorage());
+    const [cart, setCart ] = useState (getLocalStorage());
     
     const setLocalStorage = () => {
-		localStorage.setItem('cart', JSON.stringify(cart))
+        let x = JSON.stringify(cart)
+        console.log ('cart', cart)
+        console.log('x', x)
+		localStorage.setItem('cart', x)
 	}
 
 
 
     const isInCart = (id) =>cart.some((dato)=>dato.id ===id) //me devuelve true/false
 
+   
     const addToCart =(dato, quantity) =>{
         if(isInCart(dato.id)){
             const nuevoCart =cart.map((cartElement)=>{
@@ -44,9 +37,15 @@ export const CartProvider = ({children}) =>{
                 
             })
             setCart(nuevoCart)
+            console.log('dentro del if', cart)
+             
         }else{
             setCart((antes)=> [...antes,{...dato,quantity}])
-        }
+            console.log('dentro del if', cart)
+            }
+            
+        console.log('despues del if', cart)
+        setLocalStorage(cart)  
     }
 
 
@@ -70,20 +69,11 @@ export const CartProvider = ({children}) =>{
         return cart.reduce((accumulator, dato) => 
         { return Number(accumulator + dato.quantity * dato.price)}, 0);
     }
-    const updateItemStock = async (id, quantity) => {
-		const updateStock = doc(db, 'products', id)
-
-        await updateDoc(updateStock, {
-            "stock": quantity
-        })
-	}
-
-  
-
+   
 
 
     return (
-        <CartContext.Provider value= {{cart,setCart,updateItemStock ,setLocalStorage, addToCart, deleteItem, clear, cartPrice, itemsTotal, isInCart }}>
+        <CartContext.Provider value= {{cart,setCart,setLocalStorage, addToCart, deleteItem, clear, cartPrice, itemsTotal, isInCart }}>
                 {children}
         </CartContext.Provider>
     )
