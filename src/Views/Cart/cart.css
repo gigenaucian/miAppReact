@@ -50,11 +50,19 @@ h3 {
   font-weight: 600;
   margin-bottom: 1rem;
 }
-
+/* 
 .cart .final a {
-  display: inline-block;
-  background: rgb(230, 194, 222);
+  display: flex;
+  background: rgb(112, 50, 99);
   padding: 0.5rem 1rem;
   font-size: 1.8rem;
   color: rgb(238, 192, 217);
+} */
+.button {
+  display: block;
+
+  background-color: rgb(145, 145, 145);
+  margin: 10px;
+  width: 400px;
+  font-size: 1.8rem;
 }

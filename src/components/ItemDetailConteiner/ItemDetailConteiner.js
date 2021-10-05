@@ -3,48 +3,43 @@ import { useState, useEffect} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import {  getDoc ,doc } from "firebase/firestore";
 import {db} from '../../firebase'
-import { Loader } from 'semantic-ui-react'
+import PaginaError from '../../Views/PaginaError'
 
 
 const  ItemDetailConteiner= ({ match}) => {
     const  prodId = match.params.id
     const [product, setProduct] = useState({});
-    const [loading, setLoading]= useState(true)
-  
+    const [notFound, setNotFound]= useState(false)
 
 
 
     const getProducts = async () =>{
         const productoReference = doc(db, "productos", prodId)
         const productoDatos = await getDoc(productoReference)
-        //console.log('product tiene productodatos', productoDatos.data())
         const aux = productoDatos.data()
-        aux.id = prodId
-            setProduct(aux)
-           // console.log('aux tiene productodatos', aux)
-        };
+      
 
-    
+       if(!aux){
+          setNotFound(true)
+       }else {aux.id = prodId
+        setNotFound (false)
+         setProduct(aux) }
         
+
+        };
 
     useEffect(() => {
         getProducts();
-        setTimeout(()=>{
-            setLoading(false)
-          },2000)
+        
      }, [])
 
 
-      console.log(product)
-
-
-       return (
+       return ( 
            <div className='item'>
-               {loading ? <Loader active inline='centered' /> : <ItemDetail data={product}/> }
+               {notFound ? <PaginaError /> : <ItemDetail data={product}/> }
                    
             </div>
        )
-
-}
+       }
     
 export default ItemDetailConteiner;

@@ -8,10 +8,9 @@ import { Table } from 'reactstrap';
 
 const Cart = () => {
 
-    const {cart, cartPrice, clear, deleteItem ,itemsTotal} =useCartContext() ;
-    const cantidadTotal= itemsTotal();
+    const {cart, cartPrice, clear, deleteItem } =useCartContext() ;
     const precioTotal = cartPrice();
-    
+    console.log(cart)
     return (
         <section className="cart" style={{height:"700px"}}>
                 
@@ -22,7 +21,7 @@ const Cart = () => {
                     (<div>
                         <p>Tu Carrito esta vacio</p>
                         <Link to='/'>
-                            <button style={{padding: "10px 50px 10px 50px" }}> Empezar a comprar</button>
+                            <button button className='button' style={{width:'500px'},{display:'inline-block'}}> Empezar a comprar</button>
                         </Link></div>)
                         : 
                         (
@@ -46,7 +45,6 @@ const Cart = () => {
                         </td>
                     </tr>
                 </tfoot> 
-                    
                     { 
                         cart.map((data)=> (
 
@@ -61,25 +59,17 @@ const Cart = () => {
                                 </tr>
                                 
                             </tbody>
-                            
-                            
-                            
                         )) }
-                
+                           
                          </Table>
                 
                 <div className="final">
-                <button style={{padding: "10px 50px 10px 50px" }} onClick={() => clear()}>Vaciar carrito</button>
+                <button className='button' onClick={() => clear()}>Vaciar carrito</button>
                     
                     <Link to="/Checkout">
-                      <button style={{padding: "10px 50px 10px 50px" }}>  Finalizar compra </button>
+                      <button className='button' >  Finalizar compra </button>
                     </Link>
                 </div> 
-
-                    
-
-
-                    
                     </div>
                     )}
                  

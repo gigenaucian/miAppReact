@@ -39,7 +39,7 @@ const  App = () => {
         <Route path='/contacto'  component={ contacto } />
         <Route path='/cart'  component={ cart } />
         <Route path ='/Checkout' component ={ Checkout } />
-        <Route path ='*' component ={ PaginaError } />
+        <Route path ='*'  component ={ PaginaError } />
 
       </Switch>
 
