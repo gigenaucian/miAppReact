@@ -18,6 +18,13 @@ In a the project directory, you can run:
 
 
 npm run start
-Runs the app in the development mode.\
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+
+
+
+
+![video-to-gif-converter](https://user-images.githubusercontent.com/73915741/136030229-f993c1fe-598d-4b3a-a473-64b1cd951fd3.gif)
+
 
